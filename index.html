@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Sort Mania — Sort, Stack &amp; Savor on iPhone</title>
+    <meta name="description" content="Food Sort Mania: sort mouth-watering treats in colorful test tubes. Relaxing puzzle fun, offline play, and brain-training levels. Free on the App Store for iPhone.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            color: #3d2a26;
+            overflow-x: hidden;
+            background: #fff5eb;
+        }
+
+        .kitchen-glow {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 100% 55% at 50% -5%, rgba(255, 182, 193, 0.55) 0%, transparent 50%),
+                radial-gradient(ellipse 70% 45% at 95% 40%, rgba(168, 230, 207, 0.35) 0%, transparent 45%),
+                radial-gradient(ellipse 60% 40% at 5% 70%, rgba(255, 218, 185, 0.5) 0%, transparent 42%),
+                linear-gradient(165deg, #fff0e6 0%, #ffe8f0 40%, #e8f8f0 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sprinkles {
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 8% 18%, rgba(255, 107, 107, 0.35) 0 3px, transparent 4px),
+                radial-gradient(circle at 92% 12%, rgba(78, 205, 196, 0.4) 0 2.5px, transparent 3.5px),
+                radial-gradient(circle at 22% 88%, rgba(255, 195, 113, 0.45) 0 2px, transparent 3px),
+                radial-gradient(circle at 78% 82%, rgba(199, 146, 234, 0.3) 0 3px, transparent 4px);
+            background-size: 280px 280px, 320px 320px, 260px 260px, 300px 300px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.85;
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 32px 20px 96px;
+        }
+
+        .top-ribbon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .top-ribbon .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff6b6b;
+            box-shadow: 12px 0 0 #4ecdc4, 24px 0 0 #ffe66d;
+        }
+
+        .top-ribbon span {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: #c45c6a;
+            margin-left: 8px;
+        }
+
+        .hero-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 252, 248, 0.98) 100%);
+            border-radius: 32px;
+            border: 3px solid rgba(255, 182, 193, 0.65);
+            box-shadow:
+                0 24px 48px rgba(196, 92, 106, 0.12),
+                0 0 0 1px rgba(255, 255, 255, 0.8) inset,
+                0 -2px 0 rgba(78, 205, 196, 0.15) inset;
+            padding: 40px 34px 38px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 20px;
+            background: linear-gradient(90deg, rgba(255, 230, 109, 0.35), rgba(168, 230, 207, 0.4));
+            border: 2px dashed rgba(196, 92, 106, 0.35);
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #a63d4a;
+            margin-bottom: 22px;
+        }
+
+        .icon-plate {
+            width: 112px;
+            height: 112px;
+            margin: 0 auto 22px;
+            border-radius: 28px;
+            background: linear-gradient(160deg, #ff8a9b 0%, #ff6b6b 45%, #ee5a6f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            line-height: 1;
+            box-shadow:
+                0 14px 36px rgba(238, 90, 111, 0.35),
+                inset 0 3px 0 rgba(255, 255, 255, 0.35);
+        }
+
+        h1 {
+            font-family: 'Fredoka', 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2.15rem, 5.5vw, 3rem);
+            color: #2d1f1c;
+            line-height: 1.08;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: #4ecdc4;
+            margin-bottom: 4px;
+        }
+
+        .tagline {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 500;
+            font-size: 1.15rem;
+            color: #e85d75;
+            margin-bottom: 26px;
+        }
+
+        .lede {
+            text-align: left;
+            line-height: 1.82;
+            font-size: 1.02rem;
+            color: #5c4540;
+            margin-bottom: 26px;
+        }
+
+        .lede p + p {
+            margin-top: 14px;
+        }
+
+        .how-box {
+            text-align: left;
+            margin-bottom: 26px;
+            padding: 22px 24px;
+            background: linear-gradient(135deg, rgba(168, 230, 207, 0.22) 0%, rgba(255, 230, 109, 0.12) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(78, 205, 196, 0.35);
+        }
+
+        .how-box h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #2a8f7f;
+            margin-bottom: 14px;
+        }
+
+        .how-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .how-box li {
+            margin: 11px 0;
+            padding-left: 28px;
+            position: relative;
+            line-height: 1.6;
+            color: #4a3a36;
+        }
+
+        .how-box li::before {
+            content: '🧪';
+            position: absolute;
+            left: 0;
+            font-size: 0.95rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 26px;
+            text-align: left;
+        }
+
+        .feature-pill {
+            padding: 16px 18px;
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 18px;
+            border: 2px solid rgba(255, 182, 193, 0.45);
+            font-size: 0.92rem;
+            color: #5c4540;
+            line-height: 1.5;
+        }
+
+        .feature-pill strong {
+            display: block;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #2d1f1c;
+            margin-bottom: 6px;
+        }
+
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 26px;
+        }
+
+        .chip {
+            padding: 8px 14px;
+            background: rgba(255, 107, 107, 0.12);
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #a63d4a;
+            border: 2px solid rgba(255, 107, 107, 0.22);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 17px 40px;
+            background: linear-gradient(180deg, #4ecdc4 0%, #2a9d8f 100%);
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            border-radius: 999px;
+            border: 3px solid rgba(255, 255, 255, 0.45);
+            box-shadow: 0 10px 28px rgba(42, 157, 143, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 14px 36px rgba(42, 157, 143, 0.42);
+            color: #fff;
+        }
+
+        .footer {
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 2px dashed rgba(255, 182, 193, 0.5);
+            font-size: 0.88rem;
+            color: #8b6f68;
+        }
+
+        .footer a {
+            color: #e85d75;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer p {
+            margin: 8px 0;
+        }
+
+        @media (max-width: 560px) {
+            .hero-card {
+                padding: 28px 20px 26px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kitchen-glow" aria-hidden="true"></div>
+    <div class="sprinkles" aria-hidden="true"></div>
+
+    <div class="wrap">
+        <div class="top-ribbon">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Puzzle · Food · Fun</span>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-badge">Free · iPhone · Puzzle</div>
+            <div class="icon-plate" role="img" aria-label="Food puzzle">🍩</div>
+            <h1>Food Sort Mania</h1>
+            <p class="subtitle">Food puzzles &amp; tasty challenges</p>
+            <p class="tagline">Sort it. Stack it. Savor the fun!</p>
+
+            <div class="lede">
+                <p>Welcome to <strong style="color:#2d1f1c;">Food Sort Mania</strong> — the tastiest brain teaser on iPhone. Sort, stack, and match mouth-watering treats like burgers, donuts, tacos, and ice cream inside bright test tubes. It is built to relax your mind, train your logic, and deliver that satisfying “just one more level” feeling.</p>
+                <p>Whether you love cute food art or classic sorting puzzles, every stage is a colorful bite-sized challenge. Tap to move pieces, clear the tubes, and unlock new foods as you go — no stress, just flavor and focus.</p>
+            </div>
+
+            <div class="how-box">
+                <h2>How you play</h2>
+                <ul>
+                    <li>Tap to move delicious items between tubes until each tube holds matching stacks.</li>
+                    <li>Plan a few moves ahead — crowded tubes are the trickiest part of the recipe.</li>
+                    <li>Clear levels to unlock new foods and fresh layouts; difficulty grows at a friendly pace.</li>
+                    <li>Play in short sessions anytime; the game supports offline play when you are on the go.</li>
+                </ul>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-pill"><strong>Addictive sorting</strong>Simple taps, clever puzzles — easy to start, rewarding to master.</div>
+                <div class="feature-pill"><strong>Cheerful art</strong>Vibrant colors and cute food designs keep every level appetizing.</div>
+                <div class="feature-pill"><strong>Brain training</strong>Sharpen logic, focus, and spatial thinking while you unwind.</div>
+                <div class="feature-pill"><strong>Offline friendly</strong>Enjoy levels without needing a connection (subject to your device).</div>
+            </div>
+
+            <div class="meta-row">
+                <span class="chip">Puzzle</span>
+                <span class="chip">English</span>
+                <span class="chip">4+</span>
+                <span class="chip">~49 MB</span>
+                <span class="chip">iOS 12.0+</span>
+                <span class="chip">Contains ads</span>
+            </div>
+
+            <a href="https://apps.apple.com/us/app/food-sort-mania/id6755063561?uo=4" class="btn" target="_blank" rel="noopener noreferrer">
+                Get it on the App Store
+            </a>
+
+            <div class="footer">
+                <p><a href="privacy.html">Privacy Policy</a></p>
+                <p>Developer: <a href="https://litzin.com/" target="_blank" rel="noopener noreferrer">Dipak Keshariya</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

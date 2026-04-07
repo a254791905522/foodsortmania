@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy — Food Sort Mania</title>
+    <meta name="description" content="Privacy information for Food Sort Mania on iOS: data practices, advertising, children, third parties, and how to contact the developer.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', -apple-system, sans-serif;
+            font-size: 17px;
+            line-height: 1.72;
+            color: #3d2f2c;
+            background: #fffaf5;
+            min-height: 100vh;
+        }
+
+        .page-frame {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 28px 18px 72px;
+        }
+
+        .back-bar {
+            margin-bottom: 20px;
+        }
+
+        .back-bar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: #e85d75;
+            text-decoration: none;
+        }
+
+        .back-bar a:hover {
+            text-decoration: underline;
+        }
+
+        .title-block {
+            padding: 28px 26px 26px;
+            border-radius: 24px;
+            background: linear-gradient(125deg, #ff6b6b 0%, #ee5a6f 50%, #4ecdc4 100%);
+            color: #fff;
+            margin-bottom: 28px;
+            box-shadow: 0 16px 40px rgba(238, 90, 111, 0.28);
+        }
+
+        .title-block h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(1.75rem, 4vw, 2.35rem);
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+        }
+
+        .title-block .app-line {
+            font-weight: 700;
+            opacity: 0.95;
+            font-size: 1.02rem;
+        }
+
+        .title-block .updated {
+            margin-top: 14px;
+            font-size: 0.88rem;
+            opacity: 0.9;
+        }
+
+        .toc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+
+        .toc a {
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: #fff;
+            border: 2px solid rgba(255, 182, 193, 0.7);
+            color: #a63d4a;
+            font-weight: 800;
+            font-size: 0.82rem;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            border-color: #4ecdc4;
+            color: #2a8f7f;
+        }
+
+        section {
+            margin-bottom: 36px;
+            scroll-margin-top: 18px;
+        }
+
+        section h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2rem;
+            color: #2d1f1c;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #ffe66d;
+            display: inline-block;
+        }
+
+        section p {
+            margin-bottom: 12px;
+            color: #52423e;
+        }
+
+        .highlight-band {
+            padding: 20px 22px;
+            border-radius: 18px;
+            background: linear-gradient(90deg, rgba(168, 230, 207, 0.35), rgba(255, 230, 109, 0.25));
+            border-left: 5px solid #2a9d8f;
+            margin: 20px 0;
+        }
+
+        .highlight-band p {
+            margin: 0;
+            font-weight: 700;
+            color: #1f5c52;
+        }
+
+        .highlight-band .sub {
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #3d2f2c;
+        }
+
+        table.summary {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 8px;
+            font-size: 0.95rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(196, 92, 106, 0.08);
+        }
+
+        table.summary th,
+        table.summary td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 182, 193, 0.35);
+        }
+
+        table.summary th {
+            background: rgba(255, 107, 107, 0.12);
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            color: #8b2e3a;
+            width: 38%;
+        }
+
+        table.summary tr:last-child td,
+        table.summary tr:last-child th {
+            border-bottom: none;
+        }
+
+        table.summary td {
+            background: #fff;
+            color: #52423e;
+        }
+
+        .bullets {
+            list-style: none;
+            margin: 12px 0 0;
+        }
+
+        .bullets li {
+            position: relative;
+            padding-left: 26px;
+            margin: 12px 0;
+            color: #52423e;
+        }
+
+        .bullets li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2a9d8f;
+            font-weight: 800;
+        }
+
+        a.inline {
+            color: #e85d75;
+            font-weight: 800;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        a.inline:hover {
+            color: #c43d5c;
+        }
+
+        .ad-note {
+            margin-top: 18px;
+            padding: 18px 20px;
+            border-radius: 16px;
+            background: #fff;
+            border: 2px dashed rgba(78, 205, 196, 0.45);
+        }
+
+        .ad-note p {
+            margin: 0;
+            font-size: 0.96rem;
+        }
+
+        .contact-strip {
+            margin-top: 8px;
+            padding: 24px 22px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #2d1f1c 0%, #4a3530 100%);
+            color: #fff5eb;
+        }
+
+        .contact-strip h2 {
+            color: #ffe66d;
+            border-bottom-color: rgba(255, 230, 109, 0.4);
+        }
+
+        .contact-strip p {
+            color: rgba(255, 245, 235, 0.92);
+        }
+
+        .contact-strip a {
+            color: #7ee8d8;
+            font-weight: 800;
+        }
+
+        .store-cta {
+            text-align: center;
+            margin-top: 22px;
+        }
+
+        .store-cta a {
+            display: inline-block;
+            padding: 15px 34px;
+            background: linear-gradient(180deg, #4ecdc4 0%, #2a9d8f 100%);
+            color: #fff !important;
+            text-decoration: none;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            border-radius: 999px;
+            border: 3px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 8px 24px rgba(42, 157, 143, 0.3);
+        }
+
+        .store-cta a:hover {
+            filter: brightness(1.05);
+        }
+
+        .closing {
+            margin-top: 40px;
+            font-size: 0.84rem;
+            color: #8b756f;
+            line-height: 1.65;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-frame">
+        <div class="back-bar">
+            <a href="index.html">← Back to Food Sort Mania</a>
+        </div>
+
+        <header class="title-block">
+            <h1>Privacy information</h1>
+            <p class="app-line">Food Sort Mania · iPhone</p>
+            <p class="updated">Last updated: April 7, 2026 · Developer: Dipak Keshariya</p>
+        </header>
+
+        <nav class="toc" aria-label="On this page">
+            <a href="#scope">Scope</a>
+            <a href="#collection">Data</a>
+            <a href="#ads">Advertising</a>
+            <a href="#apple">Apple &amp; device</a>
+            <a href="#children">Children</a>
+            <a href="#changes">Changes</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <section id="scope">
+            <h2>Who this applies to</h2>
+            <p>This page describes how we think about privacy for <strong>Food Sort Mania</strong> when you install and play it on a compatible Apple device. It is meant for players and parents who want a clear summary alongside what Apple publishes on the App Store.</p>
+            <p>If anything here disagrees with the live App Store “App Privacy” section or a privacy URL shown on that listing, the store page and the developer-linked policy should be treated as the source of truth for the shipping app.</p>
+        </section>
+
+        <section id="collection">
+            <h2>Personal data &amp; collection</h2>
+            <div class="highlight-band">
+                <p>Apple’s App Privacy label for this app currently states that the developer does not collect data from this app in the categories Apple asks developers to disclose.</p>
+                <p class="sub">We do not operate Food Sort Mania as a tool to build personal profiles, run first-party analytics on you, or sell your information.</p>
+            </div>
+            <table class="summary" role="presentation">
+                <tbody>
+                    <tr>
+                        <th scope="row">Account in the app</th>
+                        <td>This statement does not assume you must create an in-app account to play.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Gameplay data</th>
+                        <td>Progress and preferences typically stay on your device unless you use Apple system features (for example backups or iCloud) that copy or sync data according to your settings.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Support email</th>
+                        <td>If you email the developer, whatever you choose to include in that message is handled like normal correspondence — not as part of automated in-app tracking.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Developer-hosted policy referenced from the store (if you need the full legal wording): <a class="inline" href="https://privacypolicylitzin.blogspot.com/2025/11/privacy-policy-food-sort-puzzle.html" target="_blank" rel="noopener noreferrer">Food Sort Puzzle — privacy policy</a></p>
+        </section>
+
+        <section id="ads">
+            <h2>Advertising</h2>
+            <p>The App Store indicates that the app <strong>contains advertising</strong>. Ad networks and measurement tools may process data according to their own policies and to Apple’s rules. That processing is generally described by the ad partners and by Apple, not fully replaceable by this short page.</p>
+            <div class="ad-note">
+                <p>You can review privacy choices at the system level (for example Apple’s tracking and privacy settings on your device) and read <a class="inline" href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple’s Privacy Policy</a> for how the platform handles purchases, updates, and related activity.</p>
+            </div>
+        </section>
+
+        <section id="apple">
+            <h2>Apple &amp; your device</h2>
+            <p>Downloading, updating, and using apps from the App Store involves Apple. Network, crash, or billing events may be visible to Apple as part of operating the store and iOS. We do not control Apple’s infrastructure.</p>
+            <ul class="bullets">
+                <li>Review Apple’s settings for Location, Analytics, Tracking, and Apple Advertising on your device if you want to limit sharing where the OS allows.</li>
+                <li>Parental controls and Screen Time can help manage installs and usage for younger players.</li>
+            </ul>
+        </section>
+
+        <section id="children">
+            <h2>Children</h2>
+            <p>Food Sort Mania is rated <strong>4+</strong> on the App Store. Parents and guardians decide what fits their family; this app is not directed at collecting children’s personal information beyond what Apple’s label states for the product.</p>
+        </section>
+
+        <section id="changes">
+            <h2>When we update this page</h2>
+            <p>We may edit this summary when the app, store disclosures, or applicable rules change. The “Last updated” line at the top will move forward when we make meaningful edits. Material changes to how data is handled should also be reflected on the App Store where required.</p>
+        </section>
+
+        <section id="contact" class="contact-strip">
+            <h2>Questions</h2>
+            <p>For support or privacy questions about Food Sort Mania, use the contact options on the official App Store listing or visit the developer site.</p>
+            <p><a href="https://apps.apple.com/us/app/food-sort-mania/id6755063561?uo=4" target="_blank" rel="noopener noreferrer">Food Sort Mania on the App Store</a></p>
+            <p><a href="https://litzin.com/" target="_blank" rel="noopener noreferrer">litzin.com</a></p>
+            <div class="store-cta">
+                <a href="https://apps.apple.com/us/app/food-sort-mania/id6755063561?uo=4" target="_blank" rel="noopener noreferrer">Open the listing</a>
+            </div>
+        </section>
+
+        <p class="closing">© 2026 Dipak Keshariya. This web page is a plain-language companion for visitors; it summarizes publicly available App Store privacy information and our understanding of Food Sort Mania. It is not a substitute for Apple’s disclosures or for any full legal policy the developer publishes for the product.</p>
+    </div>
+</body>
+
+</html>
